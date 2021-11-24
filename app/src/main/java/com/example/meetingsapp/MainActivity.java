@@ -10,8 +10,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
         appBar.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
         appBar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(appBar);
+
+        //Initialize Variables
+        ArrayList<Meeting> meetingsList= new ArrayList<Meeting>();
+        ListView meetingsListView= findViewById(R.id.meetingsListView);
 
         //Initialize "Add Meeting" Btn
         Button addMeetingBtn= findViewById(R.id.addMeetingBtn);
@@ -48,5 +55,10 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    public void selectDate(View v) {
+        DateSelectionFragment newFragment = new DateSelectionFragment();
+        newFragment.show(getSupportFragmentManager(), "chooseDate");
     }
 }

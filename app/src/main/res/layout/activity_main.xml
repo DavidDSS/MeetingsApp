@@ -27,4 +27,20 @@
             android:text="Add Meeting" />
     </androidx.appcompat.widget.Toolbar>
 
+    <TextView
+        android:id="@+id/windowTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="My Meetings"
+        android:layout_margin="20dp"
+        android:textSize="20dp"
+        android:layout_below="@id/meetingsToolBar"/>
+
+    <ListView
+        android:id="@+id/meetingsListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/windowTitle"/>
+
 </RelativeLayout>
