@@ -1,16 +1,20 @@
 package com.example.meetingsapp;
 
+import java.io.Serializable;
+import java.sql.Time;
 import java.util.Date;
 
-public class Meeting {
+public class Meeting implements Serializable {
     String title;
     String location;
     Date date;
+    Time time;
 
-    public Meeting(String title, String location, Date date) {
+    public Meeting(String title, String location, Date date, Time time) {
         this.title = title;
         this.location = location;
         this.date = date;
+        this.time = time;
     }
 
     @Override
@@ -19,6 +23,7 @@ public class Meeting {
                 "title='" + title + '\'' +
                 ", location='" + location + '\'' +
                 ", date=" + date +
+                ", time=" + time +
                 '}';
     }
 
@@ -44,5 +49,13 @@ public class Meeting {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
     }
 }
