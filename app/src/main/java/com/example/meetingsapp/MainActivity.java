@@ -90,12 +90,11 @@ public class MainActivity extends AppCompatActivity {
         newMeetingResult = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
                     @Override
-                    public void onActivityResult(ActivityResult result) {
-                        if (result.getResultCode() == Activity.RESULT_OK) {
-                            Intent intent = result.getData();
-                            Meeting meetingAdded= (Meeting) intent.getSerializableExtra("meetingObject");
+                    public void onActivityResult(ActivityResult activityResult) {
+                        if (activityResult.getResultCode() == Activity.RESULT_OK) {
+                            Meeting meetingAdded= (Meeting) activityResult.getData().getSerializableExtra("meetingObject");
                             Date meetingDate= meetingAdded.getDate();
-                            
+
                             if(DateUtils.isToday(meetingDate.getTime())){
                                 todayMeetingsList.add(meetingAdded);
                                 todayMeetingListAdapter.notifyDataSetChanged();
