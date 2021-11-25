@@ -45,7 +45,7 @@ public class AddMeetingActivity extends AppCompatActivity {
 
                 String meetingNameString= meetingName.getText().toString();
                 String meetingLocationString= meetingLocation.getText().toString();
-                int year= meetingDate.getYear();
+                int year= meetingDate.getYear()-1900;
                 int month= meetingDate.getMonth();
                 int day= meetingDate.getDayOfMonth();
                 Date meetingDateObject = new Date(year, month, day);

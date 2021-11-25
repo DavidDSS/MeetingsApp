@@ -35,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Meeting> todayMeetingsList;
     ArrayList<Meeting> tomorrowMeetingsList;
     ArrayList<Meeting> otherMeetingsList;
-    MeetingViewAdapter meetingListAdapter;
+    MeetingViewAdapter todayMeetingListAdapter;
+    MeetingViewAdapter tomorrowMeetingListAdapter;
+    MeetingViewAdapter otherMeetingListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +59,14 @@ public class MainActivity extends AppCompatActivity {
         otherListView= findViewById(R.id.otherListView);
 
         //Initialize Adapter
-        meetingListAdapter = new MeetingViewAdapter(this, todayMeetingsList);
+        todayMeetingListAdapter = new MeetingViewAdapter(this, todayMeetingsList);
+        tomorrowMeetingListAdapter = new MeetingViewAdapter(this, tomorrowMeetingsList);
+        otherMeetingListAdapter = new MeetingViewAdapter(this, otherMeetingsList);
 
         //Set Adapter
-        todayListView.setAdapter(meetingListAdapter);
-        tomorrowListView.setAdapter(meetingListAdapter);
-        otherListView.setAdapter(meetingListAdapter);
+        todayListView.setAdapter(todayMeetingListAdapter);
+        tomorrowListView.setAdapter(tomorrowMeetingListAdapter);
+        otherListView.setAdapter(otherMeetingListAdapter);
 
         TextView emptyToday= findViewById(R.id.emptyToday);
         todayListView.setEmptyView(emptyToday);
@@ -90,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                             Intent intent = result.getData();
                             Meeting meetingAdded= (Meeting) intent.getSerializableExtra("meetingObject");
                             todayMeetingsList.add(meetingAdded);
-                            meetingListAdapter.notifyDataSetChanged();
+                            todayMeetingListAdapter.notifyDataSetChanged();
                         }
                     }
                 });
@@ -98,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void clearToday(View view) {
         todayMeetingsList.clear();
-        meetingListAdapter.notifyDataSetChanged();
+        todayMeetingListAdapter.notifyDataSetChanged();
     }
 
     public void createMeeting(View view) {
@@ -109,6 +113,6 @@ public class MainActivity extends AppCompatActivity {
     public void removeMeeting(View view) {
         int position = todayListView.getPositionForView(view);
         todayMeetingsList.remove(position);
-        meetingListAdapter.notifyDataSetChanged();
+        todayMeetingListAdapter.notifyDataSetChanged();
     }
 }
