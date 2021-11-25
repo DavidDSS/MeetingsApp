@@ -10,6 +10,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -93,8 +94,20 @@ public class MainActivity extends AppCompatActivity {
                         if (result.getResultCode() == Activity.RESULT_OK) {
                             Intent intent = result.getData();
                             Meeting meetingAdded= (Meeting) intent.getSerializableExtra("meetingObject");
-                            todayMeetingsList.add(meetingAdded);
-                            todayMeetingListAdapter.notifyDataSetChanged();
+
+                            Date meetingDate= meetingAdded.getDate();
+                            if(DateUtils.isToday(meetingDate.getTime())){
+                                todayMeetingsList.add(meetingAdded);
+                                todayMeetingListAdapter.notifyDataSetChanged();
+                            }
+                            else if(DateUtils.isToday(meetingDate.getTime()-DateUtils.DAY_IN_MILLIS)){
+                                tomorrowMeetingsList.add(meetingAdded);
+                                tomorrowMeetingListAdapter.notifyDataSetChanged();
+                            }
+                            else{
+                                otherMeetingsList.add(meetingAdded);
+                                otherMeetingListAdapter.notifyDataSetChanged();
+                            }
                         }
                     }
                 });
@@ -105,14 +118,18 @@ public class MainActivity extends AppCompatActivity {
         todayMeetingListAdapter.notifyDataSetChanged();
     }
 
+    public void clearAll(View view) {
+        todayMeetingsList.clear();
+        todayMeetingListAdapter.notifyDataSetChanged();
+        tomorrowMeetingsList.clear();
+        tomorrowMeetingListAdapter.notifyDataSetChanged();
+        otherMeetingsList.clear();
+        otherMeetingListAdapter.notifyDataSetChanged();
+    }
+
     public void createMeeting(View view) {
         Intent intent = new Intent(MainActivity.this, AddMeetingActivity.class);
         newMeetingResult.launch(intent);
     }
 
-    public void removeMeeting(View view) {
-        int position = todayListView.getPositionForView(view);
-        todayMeetingsList.remove(position);
-        todayMeetingListAdapter.notifyDataSetChanged();
-    }
 }

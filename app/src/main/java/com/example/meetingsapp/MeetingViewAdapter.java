@@ -1,10 +1,12 @@
 package com.example.meetingsapp;
 
 import android.content.Context;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +15,7 @@ import androidx.annotation.Nullable;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MeetingViewAdapter extends ArrayAdapter {
 
@@ -40,8 +43,6 @@ public class MeetingViewAdapter extends ArrayAdapter {
         meetingLocation.setText(meetingViewPos.getLocation());
         meetingDate.setText(dateString);
         meetingTime.setText(meetingViewPos.getTime().toString());
-
-
         return meetingView;
     }
 }

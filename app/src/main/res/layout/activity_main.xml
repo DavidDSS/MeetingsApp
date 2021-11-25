@@ -44,19 +44,32 @@
         android:textSize="25dp"
         android:layout_below="@id/meetingsToolBar"/>
 
-
     <Button
-        android:id="@+id/clearToday"
+        android:id="@+id/clearAll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Clear All Today"
+        android:text="Clear All Meetings"
         android:layout_gravity="center"
         android:gravity="center"
         android:layout_below="@id/windowTitle"
         android:background="@color/purple_500"
         android:textColor="@color/white"
+        android:onClick="clearAll"
+        android:layout_margin="5dp"
+        android:padding="10dp"/>
+
+    <Button
+        android:id="@+id/clearToday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear All Meetings Today"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_below="@id/clearAll"
+        android:background="@color/purple_500"
+        android:textColor="@color/white"
         android:onClick="clearToday"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:padding="10dp"/>
 
     <TextView

@@ -42,14 +42,4 @@
             android:textColor="@android:color/white"/>
 
     </LinearLayout>
-    <Button
-        android:id="@+id/removeMeeting"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_gravity="center"
-        android:background="@color/black"
-        android:text="X"
-        android:textColor="@color/white"
-        android:onClick="removeMeeting"
-        android:layout_marginRight="20dp"/>
 </LinearLayout>
