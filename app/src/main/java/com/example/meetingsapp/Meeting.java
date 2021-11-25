@@ -13,6 +13,15 @@ public class Meeting {
         this.date = date;
     }
 
+    @Override
+    public String toString() {
+        return "Meeting{" +
+                "title='" + title + '\'' +
+                ", location='" + location + '\'' +
+                ", date=" + date +
+                '}';
+    }
+
     public String getTitle() {
         return title;
     }
