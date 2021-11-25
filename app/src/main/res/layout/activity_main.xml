@@ -47,10 +47,68 @@
         android:textSize="18dp"
         android:layout_below="@id/windowTitle"/>
 
-    <ListView
-        android:id="@+id/meetingsListView"
+    <TextView
+        android:id="@+id/emptyToday"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/no_meetings"
+        android:textSize="10dp"
         android:layout_below="@id/todayTitle"/>
+
+    <ListView
+        android:id="@+id/todayListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/todayTitle"/>
+
+    <TextView
+        android:id="@+id/tomorrowTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/meetings_tomorrow"
+        android:layout_margin="20dp"
+        android:textSize="18dp"
+        android:layout_below="@id/todayListView"/>
+    <TextView
+        android:id="@+id/emptyTomorrow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/no_meetings"
+        android:textSize="10dp"
+        android:layout_below="@id/tomorrowTitle"/>
+
+    <ListView
+        android:id="@+id/tomorrowListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tomorrowTitle"/>
+
+    <TextView
+        android:id="@+id/otherMeetingsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/meetings_other"
+        android:layout_margin="20dp"
+        android:textSize="18dp"
+        android:layout_below="@id/tomorrowListView"/>
+
+    <TextView
+        android:id="@+id/emptyOther"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/no_meetings"
+        android:textSize="10dp"
+        android:layout_below="@id/otherMeetingsTitle"/>
+
+    <ListView
+        android:id="@+id/otherListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/otherMeetingsTitle"/>
 
 </RelativeLayout>

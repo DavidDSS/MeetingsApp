@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MeetingsApp</string>
-    <string name="meetings_today"><u>Meetings Today</u></string>
+    <string name="meetings_today"><u>All Meetings Today</u></string>
+    <string name="meetings_tomorrow"><u>All Meetings Tomorrow</u></string>
+    <string name="meetings_other"><u>All Other Meetings</u></string>
+    <string name="no_meetings">No Meetings</string>
 </resources>
