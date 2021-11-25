@@ -59,7 +59,6 @@ public class AddMeetingActivity extends AppCompatActivity {
                 intent.putExtra("meetingObject", meetingAdded);
                 setResult(RESULT_OK, intent);
                 finish();
-
             }
         });
     }

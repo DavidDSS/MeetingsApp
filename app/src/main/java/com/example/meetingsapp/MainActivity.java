@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         tomorrowMeetingListAdapter = new MeetingViewAdapter(this, tomorrowMeetingsList);
         otherMeetingListAdapter = new MeetingViewAdapter(this, otherMeetingsList);
 
-        //Set Adapter
+        //Set Adapters
         todayListView.setAdapter(todayMeetingListAdapter);
         tomorrowListView.setAdapter(tomorrowMeetingListAdapter);
         otherListView.setAdapter(otherMeetingListAdapter);
@@ -94,19 +94,22 @@ public class MainActivity extends AppCompatActivity {
                         if (result.getResultCode() == Activity.RESULT_OK) {
                             Intent intent = result.getData();
                             Meeting meetingAdded= (Meeting) intent.getSerializableExtra("meetingObject");
-
                             Date meetingDate= meetingAdded.getDate();
+                            
                             if(DateUtils.isToday(meetingDate.getTime())){
                                 todayMeetingsList.add(meetingAdded);
                                 todayMeetingListAdapter.notifyDataSetChanged();
+                                Toast.makeText(MainActivity.this, "Added meeting for today", Toast.LENGTH_SHORT).show();
                             }
                             else if(DateUtils.isToday(meetingDate.getTime()-DateUtils.DAY_IN_MILLIS)){
                                 tomorrowMeetingsList.add(meetingAdded);
                                 tomorrowMeetingListAdapter.notifyDataSetChanged();
+                                Toast.makeText(MainActivity.this, "Added meeting for tomorrow", Toast.LENGTH_SHORT).show();
                             }
                             else{
                                 otherMeetingsList.add(meetingAdded);
                                 otherMeetingListAdapter.notifyDataSetChanged();
+                                Toast.makeText(MainActivity.this, "Added meeting", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
