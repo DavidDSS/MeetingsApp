@@ -1,6 +1,8 @@
 package com.example.meetingsapp;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -19,5 +21,15 @@ public class AddMeetingActivity extends AppCompatActivity {
         setSupportActionBar(appBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        //Initialize Buttons
+        Button addMeetingBtn= findViewById(R.id.addMeetingButton);
+
+        addMeetingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
     }
 }
