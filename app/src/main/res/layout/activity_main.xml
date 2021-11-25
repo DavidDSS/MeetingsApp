@@ -37,15 +37,33 @@
         android:textSize="25dp"
         android:layout_below="@id/meetingsToolBar"/>
 
-    <TextView
-        android:id="@+id/todayTitle"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/meetings_today"
-        android:layout_margin="20dp"
-        android:textSize="18dp"
-        android:layout_below="@id/windowTitle"/>
+        android:orientation="horizontal"
+        android:id="@+id/todayTitle"
+        android:layout_below="@id/windowTitle">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.8"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/meetings_today"
+            android:layout_margin="20dp"
+            android:textSize="18dp"
+            android:layout_below="@id/windowTitle"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear All Today"
+            android:layout_gravity="center"
+            android:background="@color/purple_500"
+            android:textColor="@color/white"
+            android:onClick="clearToday"
+            android:layout_margin="10dp"
+            android:padding="10dp"/>
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/emptyToday"

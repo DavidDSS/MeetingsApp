@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class MeetingViewAdapter extends ArrayAdapter {
@@ -32,9 +33,12 @@ public class MeetingViewAdapter extends ArrayAdapter {
         TextView meetingDate = meetingView.findViewById(R.id.meetingDate);
         TextView meetingTime = meetingView.findViewById(R.id.meetingTime);
 
+        SimpleDateFormat simpleDate = new SimpleDateFormat("dd/MM/yyyy");
+        String dateString= simpleDate.format(meetingViewPos.getDate());
+
         meetingName.setText(meetingViewPos.getTitle());
         meetingLocation.setText(meetingViewPos.getLocation());
-        meetingDate.setText(meetingViewPos.getDate().toString());
+        meetingDate.setText(dateString);
         meetingTime.setText(meetingViewPos.getTime().toString());
 
 

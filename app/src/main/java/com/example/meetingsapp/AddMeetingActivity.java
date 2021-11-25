@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AddMeetingActivity extends AppCompatActivity {
@@ -51,7 +52,9 @@ public class AddMeetingActivity extends AppCompatActivity {
 
                 int hour= meetingTime.getHour();
                 int min= meetingTime.getMinute();
+
                 Time meetingTimeObject = new Time(hour, min,0);
+
                 Meeting meetingAdded= new Meeting(meetingNameString, meetingLocationString,meetingDateObject, meetingTimeObject);
                 intent.putExtra("meetingObject", meetingAdded);
                 setResult(RESULT_OK, intent);

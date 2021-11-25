@@ -96,6 +96,10 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    public void clearToday(View view) {
+        todayMeetingsList.clear();
+        meetingListAdapter.notifyDataSetChanged();
+    }
 
     public void createMeeting(View view) {
         Intent intent = new Intent(MainActivity.this, AddMeetingActivity.class);
