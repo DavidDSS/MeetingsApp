@@ -1,3 +1,9 @@
+/*Reference:
+Followed instructions from Android documentation to implement things such as ArrayAdapters and Returning Objects from activities:
+“Getting a Result from an Activity  :   Android Developers.” Android Developers, https://developer.android.com/training/basics/intents/result.
+“Arrayadapter  :   Android Developers.” Android Developers, https://developer.android.com/reference/android/widget/ArrayAdapter.
+*/
+
 package com.example.meetingsapp;
 
 import androidx.activity.result.ActivityResult;
@@ -87,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Wait for the result from "Create Meeting" functionality and then add it to the meeting list
         newMeetingResult = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
                     @Override
@@ -115,11 +122,13 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    //Clear all meetings scheduled for today
     public void clearToday(View view) {
         todayMeetingsList.clear();
         todayMeetingListAdapter.notifyDataSetChanged();
     }
 
+    //Clear all meetings
     public void clearAll(View view) {
         todayMeetingsList.clear();
         todayMeetingListAdapter.notifyDataSetChanged();
@@ -129,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
         otherMeetingListAdapter.notifyDataSetChanged();
     }
 
+    //Create a new meeting in new activity
     public void createMeeting(View view) {
         Intent intent = new Intent(MainActivity.this, AddMeetingActivity.class);
         newMeetingResult.launch(intent);

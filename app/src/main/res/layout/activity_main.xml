@@ -156,4 +156,5 @@
         android:nestedScrollingEnabled="true"/>
 
 </RelativeLayout>
-</androidx.core.widget.NestedScrollView>
+</androidx.core.widget.NestedScrollView
+    >
